@@ -18,4 +18,14 @@ class Question extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function getUrlAttribute()
+    {
+        return route('questions.show', $this->id);
+    }
+
+    public function getCreatedDateAttribute()
+    {
+        return $this->created_at->diffForHumans();
+    }
 }
